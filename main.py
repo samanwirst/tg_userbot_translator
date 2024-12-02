@@ -5,7 +5,7 @@ import re
 from translations import TranslationsList
 
 app = Client("my_account", api_id=API_ID, api_hash=API_HASH)
-remove_symbols = ["«", "»", '"']
+remove_symbols = ["«", "»", '"', '“']
 
 @app.on_message(filters.text)
 async def answer(client, message):
