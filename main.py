@@ -15,9 +15,9 @@ async def answer(client, message):
         for symbol in remove_symbols: # При переводе возвращает ковычки, удаляем их
             translation = translation.replace(symbol, '')
         
-        splitted_translation = re.findall(r'\S+|\s+', translation) # Разбиваем текст со словами на массив
+        splitted_translation = re.findall(r'\S+|[ \t]+|[\n]', translation) # Разбиваем текст со словами на массив
         new_message = ''
-        for word in splitted_translation:
+        for word in splitted_translation: # Анимация печати как в ChatGPT
             try:
                 new_message += f'{word}'
                 await app.edit_message_text(message.chat.id, message.id, new_message)
